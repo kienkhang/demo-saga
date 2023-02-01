@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "khang1"
+    },
+    {
+      "id": 2,
+      "username": "khang2"
+    },
+    {
+      "id": 3,
+      "username": "khang3"
+    },
+    {
+      "username": "khang4",
+      "id": 4
+    },
+    {
+      "username": "khang5",
+      "id": 5
+    }
+  ]
+}
