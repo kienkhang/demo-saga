@@ -1,9 +1,11 @@
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SearchField from "./components/SearchField";
-import { deleteUsers, getUsers } from "./redux/slice/users";
 import useUsers from "@/hooks/useUsers";
+
+import AppRouter from "./router/AppRouter";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function App() {
+  const navigate = useNavigate();
   // //hook
   // const dispatch = useDispatch();
   const selector = useSelector((state) => state.users);
@@ -20,22 +22,16 @@ function App() {
   //   // Every user change -> get Users
   //   dispatch(getUsers());
   // }, []);
-  const { handleDeleteUser } = useUsers();
+  // const { handleDeleteUser } = useUsers();
 
-  const deleteUser = (id) => {
-    handleDeleteUser(id);
-    // muatate(id)
-  };
+  // const deleteUser = (id) => {
+  //   handleDeleteUser(id);
+  //   // muatate(id)
+  // };
 
   return (
     <div className="flex flex-col gap-5 items-center font-medium text-lg w-full p-10">
-      <SearchField></SearchField>
-      {/* <button
-        className="p-2 rounded-md bg-green-500 text-white"
-        onClick={() => executeGetUser()}
-      >
-        Get data
-      </button> */}
+      {/* <SearchField></SearchField>
       <ul>
         {users &&
           users.map((user) => {
@@ -54,7 +50,19 @@ function App() {
               </li>
             );
           })}
-      </ul>
+      </ul> */}
+      <div className="flex gap-2">
+        <button
+          className="p-2 rounded-md bg-green-500 text-white"
+          onClick={() => navigate("/")}
+        >
+          Goto Init Page
+        </button>
+        <Link to="/home">Home</Link>
+        <Link to="/contact">Contact</Link>
+      </div>
+
+      <AppRouter></AppRouter>
     </div>
   );
 }
