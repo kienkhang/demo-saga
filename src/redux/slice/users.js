@@ -3,6 +3,7 @@ const userStore = createSlice({
   name: "users",
   initialState: {
     users: [],
+    isLoading: true,
   },
   reducers: {
     // Execute Saga

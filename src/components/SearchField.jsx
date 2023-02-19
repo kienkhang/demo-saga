@@ -1,16 +1,20 @@
-import { addUsers } from "@/redux/slice/users";
+import useUsers from "@/hooks/useUsers";
+// import { addUsers } from "@/redux/slice/users";
 import React from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 const SearchField = () => {
-  // hook
-  const dispatch = useDispatch();
-  // method
+  // // hook
+  // const dispatch = useDispatch();
+  const { handleAddUser } = useUsers();
+  // // method
   const handleSubmit = (e) => {
     e.preventDefault();
     const text = e.target.elements["username"].value;
-    dispatch(addUsers({ username: text }));
+    handleAddUser({ username: text });
+    // mutate()
   };
   // ====================
+
   return (
     <form onSubmit={handleSubmit} className="flex gap-4">
       <input
